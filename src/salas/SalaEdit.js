@@ -2,20 +2,31 @@ import React from "react";
 import {
   Edit,
   SimpleForm,
+  ReferenceInput,
   TextInput,
   DisabledInput,
-  BooleanInput
+  SelectInput
 } from "react-admin";
+import { AvailableTimeComp } from "../ra-available-times/AvailableTimes";
 
 const SalaTitle = ({ record }) => {
-  return <span>User {record ? ` - ${record.nome}` : ""}</span>;
+  return <span>Sala {record ? ` - ${record.nome}` : ""}</span>;
 };
 
 const SalaEdit = props => (
   <Edit title={<SalaTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
-      <TextInput source="nome" />
+      <TextInput label="Nome" source="nome" />
+
+      <ReferenceInput source="userId" reference="users">
+        <SelectInput optionText="name" />
+      </ReferenceInput>
+      <ReferenceInput source="eventoId" reference="eventos">
+        <SelectInput optionText="nome" label="Evento" />
+      </ReferenceInput>
+
+      <AvailableTimeComp source="horarios" />
     </SimpleForm>
   </Edit>
 );

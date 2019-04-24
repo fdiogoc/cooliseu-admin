@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { addField } from "ra-core";
-
+import get from "lodash/get";
 import AvailableTimes from "react-available-times";
 
 const makeCalendar = CalendarComponent => {
@@ -11,7 +11,16 @@ const makeCalendar = CalendarComponent => {
     }
 
     render() {
-      const { source, resource, className } = this.props;
+      const { source, resource, className, record } = this.props;
+      const selections = get(record, source);
+      if (selections != null) {
+        selections.forEach(selection => {
+          if (selection.start instanceof Date == false) {
+            selection.start = selection.start.toDate();
+            selection.end = selection.end.toDate();
+          }
+        });
+      }
 
       return (
         <div className="calendar">
@@ -20,7 +29,15 @@ const makeCalendar = CalendarComponent => {
             source={source}
             resource={resource}
             weekStartsOn="monday"
-            onChange={selections => this.onChange(selections)}
+            onChange={selections => {
+              selections.forEach(selection => {
+                if (selection.start instanceof Date == false) {
+                  selection.start = selection.start.toDate();
+                  selection.end = selection.end.toDate();
+                }
+              });
+              this.onChange(selections);
+            }}
             height={400}
             recurring={false}
             availableDays={[
@@ -31,6 +48,7 @@ const makeCalendar = CalendarComponent => {
               "friday"
             ]}
             availableHourRange={{ start: 9, end: 19 }}
+            initialSelections={selections}
           />
         </div>
       );
