@@ -5,13 +5,9 @@ import {
   ReferenceInput,
   TextInput,
   DisabledInput,
-  SelectInput,
-  ArrayInput,
-  SimpleFormIterator,
-  AutocompleteInput
+  SelectInput
 } from "react-admin";
-import AvailableTimesRA from "../custom/AvailableTimes";
-import { DateInput, TimeInput } from "react-admin-date-inputs";
+import { AvailableTimeComp } from "../ra-available-times/AvailableTimes";
 
 const SalaCreate = props => (
   <Create {...props}>
@@ -25,16 +21,8 @@ const SalaCreate = props => (
       <ReferenceInput source="eventoId" reference="eventos">
         <SelectInput optionText="nome" label="Evento" />
       </ReferenceInput>
-      <ArrayInput source="horarios">
-        <SimpleFormIterator>
-          <DateInput
-            source="dia"
-            options={{ format: "dd/MM/YYYY", autoOk: true }}
-          />
-          <TimeInput source="horario" options={{ ampm: false }} />
-        </SimpleFormIterator>
-      </ArrayInput>
-      <AvailableTimesRA source="horarios" />
+
+      <AvailableTimeComp source="horarios" />
     </SimpleForm>
   </Create>
 );
