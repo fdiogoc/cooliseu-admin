@@ -1,4 +1,4 @@
-import EventoIcon from "@material-ui/icons/People";
+import EventoIcon from "@material-ui/icons/Group";
 
 import EventoList from "./EventoList";
 import EventoEdit from "./EventoEdit";

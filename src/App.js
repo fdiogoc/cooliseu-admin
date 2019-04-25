@@ -27,7 +27,6 @@ const firebaseConfig = {
 };
 
 const trackedResources = [
-  { name: "posts", isPublic: true },
   { name: "users", isPublic: true },
   { name: "eventos", isPublic: true },
   { name: "salas", isPublic: true },
@@ -42,7 +41,6 @@ const dataProvider = base64Uploader(
 const App = () => (
   <Admin theme={theme} dataProvider={dataProvider} appLayout={Layout}>
     <Resource name="users" {...users} />
-    <Resource name="posts" list={ListGuesser} edit={EditGuesser} />
     <Resource name="eventos" {...eventos} />
     <Resource name="salas" {...salas} />
     <Resource name="agendas" {...agendas} />

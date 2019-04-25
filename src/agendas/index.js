@@ -1,4 +1,4 @@
-import AgendaIcon from "@material-ui/icons/Room";
+import AgendaIcon from "@material-ui/icons/Book";
 
 import AgendaList from "./AgendaList";
 import AgendaEdit from "./AgendaEdit";
