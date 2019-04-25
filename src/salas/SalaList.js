@@ -16,7 +16,7 @@ const SalaList = props => (
       <TextField source="nome" />
       <ArrayField source="horarios">
         <SingleFieldList>
-          <ChipField source="date" />
+          <ChipField source="dataString" />
         </SingleFieldList>
       </ArrayField>
       <ReferenceField source="userId" reference="users">

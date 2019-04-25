@@ -10,12 +10,25 @@ const makeCalendar = CalendarComponent => {
       this.props.input.onChange(selections);
     }
 
+    getDatetoString(date) {
+      let day = date.getDate();
+      let month = date.getMonth();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+
+      return `${day < 10 ? `0${day}` : `${day}`}/${
+        month < 10 ? `0${month}` : `${month}`
+      } - ${hours < 10 ? `0${hours}` : `${hours}`}:${
+        minutes < 10 ? `0${minutes}` : `${minutes}`
+      }`;
+    }
+
     render() {
       const { source, resource, className, record } = this.props;
       const selections = get(record, source);
       if (selections != null) {
         selections.forEach(selection => {
-          if (selection.start instanceof Date == false) {
+          if (selection.start instanceof Date === false) {
             selection.start = selection.start.toDate();
             selection.end = selection.end.toDate();
           }
@@ -31,7 +44,9 @@ const makeCalendar = CalendarComponent => {
             weekStartsOn="monday"
             onChange={selections => {
               selections.forEach(selection => {
-                if (selection.start instanceof Date == false) {
+                selection.isTaken = false;
+                selection.dataString = this.getDatetoString(selection.start);
+                if (selection.start instanceof Date === false) {
                   selection.start = selection.start.toDate();
                   selection.end = selection.end.toDate();
                 }
