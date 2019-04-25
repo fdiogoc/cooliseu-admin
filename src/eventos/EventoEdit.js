@@ -1,31 +1,30 @@
 import React from "react";
-import {
-  Edit,
-  SimpleForm,
-  NumberInput,
-  TextInput,
-  DisabledInput,
-  BooleanInput
-} from "react-admin";
+import { Edit, SimpleForm, TextInput, DisabledInput } from "react-admin";
 
-const UserTitle = ({ record }) => {
-  return <span>User {record ? ` - ${record.name}` : ""}</span>;
+import { DateTimeInput } from "react-admin-date-inputs";
+const EventTitle = ({ record }) => {
+  return <span>Evento {record ? ` - ${record.nome}` : ""}</span>;
 };
 
-const UserEdit = props => (
-  <Edit title={<UserTitle />} {...props}>
+const EventEdit = props => (
+  <Edit title={<EventTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
 
-      <TextInput source="email" />
+      <TextInput label="Nome" source="nome" />
+      <DateTimeInput
+        label="Data"
+        source="data_inicio"
+        options={{
+          format: "dd/MM/YYYY, HH:mm:ss",
+          ampm: false,
+          clearable: true
+        }}
+      />
 
-      <BooleanInput source="isAdmin" />
-
-      <TextInput source="name" />
-
-      <TextInput source="username" />
+      <TextInput label="Local" source="local" />
     </SimpleForm>
   </Edit>
 );
 
-export default UserEdit;
+export default EventEdit;

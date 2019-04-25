@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Create,
-  SimpleForm,
-  NumberInput,
-  TextInput,
-  DisabledInput
-} from "react-admin";
+import { Create, SimpleForm, TextInput, DisabledInput } from "react-admin";
 
 import { DateTimeInput } from "react-admin-date-inputs";
 
