@@ -8,11 +8,13 @@
     "material-ui-pickers": "^2.2.4",
     "prop-types": "^15.7.2",
     "ra-data-firestore-client": "^0.1.11",
+    "ra-data-firestore-client-naggertooth": "^0.1.13",
     "ra-data-json-server": "^2.8.6",
     "react": "^16.8.6",
     "react-admin": "^2.8.6",
     "react-admin-date-inputs": "^1.1.2",
     "react-available-times": "^1.2.2",
+    "react-dev-utils": "^9.0.0",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
     "typescript": "^3.4.4"

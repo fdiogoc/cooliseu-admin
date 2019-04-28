@@ -2,7 +2,10 @@ import React from "react";
 import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
 import { createMuiTheme } from "@material-ui/core/styles";
 
-import { RestProvider, base64Uploader } from "ra-data-firestore-client";
+import {
+  RestProvider,
+  base64Uploader
+} from "ra-data-firestore-client-naggertooth";
 
 import users from "./users";
 import eventos from "./eventos";
@@ -36,7 +39,6 @@ const trackedResources = [
 const dataProvider = base64Uploader(
   RestProvider(firebaseConfig, { trackedResources })
 );
-//const dataProvider = jsonServerProvider("http://jsonplaceholder.typicode.com");
 
 const App = () => (
   <Admin theme={theme} dataProvider={dataProvider} appLayout={Layout}>
