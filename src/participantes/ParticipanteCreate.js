@@ -1,31 +1,22 @@
 import React from "react";
 import {
-  Edit,
+  Create,
   SimpleForm,
-  NumberInput,
   TextInput,
   DisabledInput,
   BooleanInput
 } from "react-admin";
 
-const UserTitle = ({ record }) => {
-  return <span>User {record ? ` - ${record.name}` : ""}</span>;
-};
-
-const UserEdit = props => (
-  <Edit title={<UserTitle />} {...props}>
+const ParticipanteEdit = props => (
+  <Create {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
-
       <TextInput source="email" />
-
       <BooleanInput source="isAdmin" />
-
       <TextInput source="name" />
-
       <TextInput source="username" />
     </SimpleForm>
-  </Edit>
+  </Create>
 );
 
-export default UserEdit;
+export default ParticipanteEdit;

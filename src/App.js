@@ -7,7 +7,7 @@ import {
   base64Uploader
 } from "ra-data-firestore-client-naggertooth";
 
-import users from "./users";
+import participantes from "./participantes";
 import eventos from "./eventos";
 import salas from "./salas";
 import agendas from "./agendas";
@@ -30,7 +30,7 @@ const firebaseConfig = {
 };
 
 const trackedResources = [
-  { name: "users", isPublic: true },
+  { name: "participantes", isPublic: true },
   { name: "eventos", isPublic: true },
   { name: "salas", isPublic: true },
   { name: "agendas", isPublic: true }
@@ -42,7 +42,7 @@ const dataProvider = base64Uploader(
 
 const App = () => (
   <Admin theme={theme} dataProvider={dataProvider} appLayout={Layout}>
-    <Resource name="users" {...users} />
+    <Resource name="participantes" {...participantes} />
     <Resource name="eventos" {...eventos} />
     <Resource name="salas" {...salas} />
     <Resource name="agendas" {...agendas} />

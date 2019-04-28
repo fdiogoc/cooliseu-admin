@@ -1,7 +1,7 @@
 import React from "react";
 import { List, Datagrid, TextField, EmailField } from "react-admin";
 import BooleanCustomField from "../custom/BooleanCustomField";
-const UserList = props => (
+const ParticipanteList = props => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="name" />
@@ -14,4 +14,4 @@ const UserList = props => (
   </List>
 );
 
-export default UserList;
+export default ParticipanteList;

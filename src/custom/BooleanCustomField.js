@@ -29,7 +29,8 @@ const styles = createStyles({
 
 const BooleanCustomField = ({ record = {}, source, classes }) => {
   const value = get(record, source);
-  if (value == "false") {
+  console.log(value);
+  if (value === "false" || value === false) {
     return (
       <Typography component="span" variant="body1">
         <FalseIcon data-testid="false" />
@@ -37,7 +38,7 @@ const BooleanCustomField = ({ record = {}, source, classes }) => {
     );
   }
 
-  if (value == "true") {
+  if (value === "true" || value === true) {
     return (
       <Typography component="span" variant="body1">
         <TrueIcon data-testid="true" />
