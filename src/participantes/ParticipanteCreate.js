@@ -8,12 +8,12 @@ import {
 } from "react-admin";
 
 const ParticipanteEdit = props => (
-  <Create {...props}>
+  <Create {...props} label="Criar">
     <SimpleForm>
       <DisabledInput source="id" />
       <TextInput source="email" />
       <BooleanInput source="isAdmin" />
-      <TextInput source="name" />
+      <TextInput source="nome" />
       <TextInput source="username" />
     </SimpleForm>
   </Create>

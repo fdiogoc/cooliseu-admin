@@ -15,8 +15,8 @@ const SalaCreate = props => (
       <DisabledInput source="id" />
       <TextInput label="Nome" source="nome" />
 
-      <ReferenceInput source="userId" reference="users">
-        <SelectInput optionText="name" />
+      <ReferenceInput source="participanteId" reference="participantes">
+        <SelectInput optionText="nome" />
       </ReferenceInput>
       <ReferenceInput source="eventoId" reference="eventos">
         <SelectInput optionText="nome" label="Evento" />

@@ -19,8 +19,8 @@ const SalaList = props => (
           <ChipField source="dataString" />
         </SingleFieldList>
       </ArrayField>
-      <ReferenceField source="userId" reference="users">
-        <TextField source="name" />
+      <ReferenceField source="participanteId" reference="participantes">
+        <TextField source="nome" />
       </ReferenceField>
       <ReferenceField source="eventoId" reference="eventos">
         <TextField source="nome" />

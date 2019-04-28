@@ -4,7 +4,7 @@ import BooleanCustomField from "../custom/BooleanCustomField";
 const ParticipanteList = props => (
   <List {...props}>
     <Datagrid rowClick="edit">
-      <TextField source="name" />
+      <TextField source="nome" />
       <EmailField source="email" />
       <TextField source="isAdmin" />
       <BooleanCustomField source="isAdmin" />

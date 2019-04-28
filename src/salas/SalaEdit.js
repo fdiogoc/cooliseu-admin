@@ -19,7 +19,7 @@ const SalaEdit = props => (
       <DisabledInput source="id" />
       <TextInput label="Nome" source="nome" />
 
-      <ReferenceInput source="userId" reference="users">
+      <ReferenceInput source="participanteId" reference="participantes">
         <SelectInput optionText="name" />
       </ReferenceInput>
       <ReferenceInput source="eventoId" reference="eventos">

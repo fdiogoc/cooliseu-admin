@@ -20,7 +20,7 @@ const ParticipanteEdit = props => (
 
       <BooleanInput source="isAdmin" />
 
-      <TextInput source="name" />
+      <TextInput source="nome" />
 
       <TextInput source="username" />
     </SimpleForm>
