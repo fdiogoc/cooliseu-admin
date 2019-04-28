@@ -22,6 +22,9 @@ const SalaList = props => (
       <ReferenceField source="userId" reference="users">
         <TextField source="name" />
       </ReferenceField>
+      <ReferenceField source="eventoId" reference="eventos">
+        <TextField source="nome" />
+      </ReferenceField>
     </Datagrid>
   </List>
 );
