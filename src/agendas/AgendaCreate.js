@@ -2,45 +2,44 @@ import React from "react";
 import {
   Create,
   SimpleForm,
-  ReferenceManyField,
   TextInput,
-  DisabledInput,
-  ReferenceInput,
+  FormDataConsumer,
   SelectInput,
-  Datagrid,
-  ReferenceField,
-  TextField
+  required,
+  GET_ONE,
+  showNotification,
+  REDUX_FORM_NAME,
+  ArrayInput,
+  SimpleFormIterator,
+  fetchEnd,
+  fetchStart
 } from "react-admin";
+import { AvailableTimeComp } from "../ra-available-times/AvailableTimes";
+import AgendaFill from "./AgendaFill";
+import dataProvider from "../dataProvider";
+import HorarioSalaList from "./HorarioSalaList";
+import { change } from "redux-form";
 
-const SalaCreate = props => (
+const customOnChange = event => {
+  if (event.salaId) {
+  }
+};
+
+const AgendaCreate = props => (
   <Create {...props}>
-    <SimpleForm>
-      <DisabledInput source="id" />
-      <TextInput source="nome" />
+    <SimpleForm onChange={customOnChange}>
+      <TextInput source="name" validate={required()} />
+      <AgendaFill />
 
-      <ReferenceInput source="salaId" reference="salas">
-        <SelectInput optionText="nome" />
-      </ReferenceInput>
-
-      <ReferenceInput source="participanteId" reference="participantes">
-        <SelectInput optionText="nome" />
-      </ReferenceInput>
-
-      <ReferenceManyField
-        label="Salas"
-        reference="salas"
-        target="participanteId"
-        source="participanteId"
-      >
-        <Datagrid>
-          <TextField source="participanteId" />
-          <ReferenceField source="participanteId" reference="participantes">
-            <TextField optionText="nome" />
-          </ReferenceField>
-        </Datagrid>
-      </ReferenceManyField>
+      <FormDataConsumer>
+        {({ formData, ...rest }) => {
+          if (formData.salaId) {
+            return <HorarioSalaList record={formData} />;
+          }
+        }}
+      </FormDataConsumer>
     </SimpleForm>
   </Create>
 );
 
-export default SalaCreate;
+export default AgendaCreate;

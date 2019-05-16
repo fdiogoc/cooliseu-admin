@@ -1,8 +1,8 @@
 import React from "react";
 
 import get from "lodash/get";
-import Typography, { TypographyProps } from "@material-ui/core/Typography";
-import { createStyles, withStyles, WithStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import { createStyles, withStyles } from "@material-ui/core/styles";
 
 import FalseIcon from "@material-ui/icons/Clear";
 import TrueIcon from "@material-ui/icons/Done";
@@ -29,7 +29,7 @@ const styles = createStyles({
 
 const BooleanCustomField = ({ record = {}, source, classes }) => {
   const value = get(record, source);
-  console.log(value);
+
   if (value === "false" || value === false) {
     return (
       <Typography component="span" variant="body1">

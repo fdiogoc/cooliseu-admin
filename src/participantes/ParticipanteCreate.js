@@ -11,7 +11,7 @@ const ParticipanteEdit = props => (
   <Create {...props} label="Criar">
     <SimpleForm>
       <DisabledInput source="id" />
-      <TextInput source="email" />
+      <TextInput source="email" type="email" />
       <BooleanInput source="isAdmin" />
       <TextInput source="nome" />
       <TextInput source="username" />
