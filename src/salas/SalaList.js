@@ -6,28 +6,43 @@ import {
   ArrayField,
   SingleFieldList,
   ChipField,
-  ReferenceField,
-  CardActions,
-  CreateButton
+  ReferenceField
 } from "react-admin";
+
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
+import AgendaChip from "../custom/AgendaChip";
+const CreateRelatedCommentButton = ({ record }) => {
+  return (
+    <Button
+      component={Link}
+      to={{
+        pathname: "/agendas/create",
+        state: { record: { eventoId: record.eventoId, salaId: record.id } }
+      }}
+    >
+      Agendar
+    </Button>
+  );
+};
 
 const SalaList = props => (
   <Fragment>
     <List {...props}>
       <Datagrid rowClick="edit">
-        <TextField source="id" />
         <TextField source="nome" />
-        <ArrayField source="horarios">
-          <SingleFieldList>
-            <ChipField source="dataString" />
-          </SingleFieldList>
-        </ArrayField>
-        <ReferenceField source="participanteId" reference="participantes">
+        <ReferenceField
+          source="participanteId"
+          reference="participantes"
+          label="Organizador"
+        >
           <TextField source="nome" />
         </ReferenceField>
         <ReferenceField source="eventoId" reference="eventos">
           <TextField source="nome" />
         </ReferenceField>
+
+        <AgendaChip />
       </Datagrid>
     </List>
   </Fragment>

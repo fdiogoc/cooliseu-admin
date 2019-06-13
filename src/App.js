@@ -2,12 +2,8 @@ import React from "react";
 import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
 import { createMuiTheme } from "@material-ui/core/styles";
 
-import {
-  RestProvider,
-  base64Uploader
-} from "ra-data-firestore-client-naggertooth";
-
 import dataProvider from "./dataProvider";
+import dataProviderNaga from "./dataProviderNaga";
 
 import participantes from "./participantes";
 import eventos from "./eventos";
@@ -17,6 +13,13 @@ import categorias from "./categorias";
 import { Layout } from "./layout";
 import customRoutes from "./customRoutes";
 
+import portugueseMessages from "ra-language-portuguese";
+
+const messages = {
+  pt: portugueseMessages
+};
+const i18nProvider = locale => messages[locale];
+
 const theme = createMuiTheme({
   palette: {
     primary: { main: "#32ae8e", contrastText: "#ffffff" },
@@ -25,12 +28,19 @@ const theme = createMuiTheme({
 });
 
 const App = () => (
-  <Admin theme={theme} dataProvider={dataProvider} appLayout={Layout}>
+  <Admin
+    locale="pt"
+    i18nProvider={i18nProvider}
+    theme={theme}
+    dataProvider={dataProviderNaga}
+    appLayout={Layout}
+  >
     <Resource name="participantes" {...participantes} />
     <Resource name="eventos" {...eventos} />
     <Resource name="salas" {...salas} />
     <Resource name="agendas" {...agendas} />
-    <Resource name="categorias" {...categorias} />
+
+    <Resource name="horarios" />
   </Admin>
 );
 

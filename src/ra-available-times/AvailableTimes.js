@@ -43,6 +43,11 @@ const makeCalendar = CalendarComponent => {
             resource={resource}
             weekStartsOn="monday"
             onChange={selections => {
+              let i = 0;
+              selections.map(n => {
+                n["id"] = i.toString();
+                i++;
+              });
               selections.forEach(selection => {
                 selection.isTaken = false;
                 selection.dataString = this.getDatetoString(selection.start);

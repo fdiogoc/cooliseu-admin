@@ -6,10 +6,9 @@ const ParticipanteList = props => (
     <Datagrid rowClick="edit">
       <TextField source="nome" />
       <EmailField source="email" />
-      <TextField source="isAdmin" />
+
       <BooleanCustomField source="isAdmin" />
       <TextField source="username" />
-      <TextField source="password" type="password" />
     </Datagrid>
   </List>
 );

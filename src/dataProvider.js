@@ -1,7 +1,4 @@
-import {
-  RestProvider,
-  base64Uploader
-} from "ra-data-firestore-client-naggertooth";
+import { FirebaseDataProvider } from "react-admin-firebase";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC5m8jKKZe5Mu969fTaJyxDAYxcCceIO_4",
@@ -12,14 +9,4 @@ const firebaseConfig = {
   messagingSenderId: "278255466390"
 };
 
-const trackedResources = [
-  { name: "participantes", isPublic: true },
-  { name: "eventos", isPublic: true },
-  { name: "salas", isPublic: true },
-  { name: "agendas", isPublic: true },
-  { name: "categorias", isPublic: true }
-];
-
-export default base64Uploader(
-  RestProvider(firebaseConfig, { trackedResources })
-);
+export default FirebaseDataProvider(firebaseConfig);

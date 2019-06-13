@@ -6,26 +6,29 @@ import {
   TextInput,
   DisabledInput,
   SelectInput,
-  required
+  required,
+  FormDataConsumer
 } from "react-admin";
 import { AvailableTimeComp } from "../ra-available-times/AvailableTimes";
 import SalaReferenceInput from "../custom/SalaReferenceInput";
 
+const isAdmin = true;
 const SalaCreate = props => (
   <Create {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
-      <TextInput label="Nome" source="nome" />
-      <SalaReferenceInput source="salaId" reference="salas">
-        <SelectInput optionText="nome" label="Sala" />
-      </SalaReferenceInput>
+      <TextInput label="Nome da Sala" source="nome" />
+
       <ReferenceInput
+        label="Organizador"
         source="participanteId"
         reference="participantes"
+        resources="participantes"
         validate={required()}
       >
         <SelectInput optionText="nome" />
       </ReferenceInput>
+
       <ReferenceInput source="eventoId" reference="eventos">
         <SelectInput optionText="nome" label="Evento" />
       </ReferenceInput>

@@ -42,12 +42,11 @@ class SalaQuickCreateButton extends Component {
     // Trigger a submit of our custom quick create form
     // This is needed because our modal action buttons are oustide the form
     submit("sala-quick-create");
-    console.log("fuck");
   };
 
   handleSubmit = values => {
     const { change, fetchStart, fetchEnd, showNotification } = this.props;
-    console.log("fuck");
+
     // Dispatch an action letting react-admin know a API call is ongoing
     fetchStart();
 
