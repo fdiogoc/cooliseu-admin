@@ -9,7 +9,7 @@ import {
   SelectInput
 } from "react-admin";
 
-const ParticipanteEdit = props => (
+const PalestranteEdit = props => (
   <Create {...props} label="Criar">
     <SimpleForm>
       <DisabledInput source="id" />
@@ -28,4 +28,4 @@ const ParticipanteEdit = props => (
   </Create>
 );
 
-export default ParticipanteEdit;
+export default PalestranteEdit;

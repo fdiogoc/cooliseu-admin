@@ -19,8 +19,7 @@ const trackedResources = [
   { name: "palestras", isPublic: true },
   { name: "eventos", isPublic: true },
   { name: "salas", isPublic: true },
-  { name: "agendas", isPublic: true },
-  s
+  { name: "agendas", isPublic: true }
 ];
 
 export default base64Uploader(

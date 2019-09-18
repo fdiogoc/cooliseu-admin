@@ -1,5 +1,5 @@
 import React from "react";
-import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
+import { Admin, Resource } from "react-admin";
 import { createMuiTheme } from "@material-ui/core/styles";
 
 import authProvider from "./authProvider";
@@ -11,6 +11,7 @@ import eventos from "./eventos";
 import salas from "./salas";
 import agendas from "./agendas";
 import palestrantes from "./palestrantes";
+import palestras from "./palestras";
 import { Layout } from "./layout";
 
 import portugueseMessages from "ra-language-portuguese";
@@ -40,6 +41,7 @@ const App = () => (
       <Resource name="salas" {...salas} />,
       <Resource name="agendas" {...agendas} />,
       <Resource name="palestrantes" {...palestrantes} />,
+      <Resource name="palestras" {...palestras} />,
       permissions === "admin" ? (
         <Resource name="participantes" {...participantes} />
       ) : null,

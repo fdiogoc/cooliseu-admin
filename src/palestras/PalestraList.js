@@ -1,19 +1,15 @@
 import React from "react";
-import {
-  List,
-  Datagrid,
-  TextField,
-  EmailField,
-  ReferenceField
-} from "react-admin";
+import { List, Datagrid, TextField, ReferenceField } from "react-admin";
 
 const PalestranteList = props => (
   <List {...props}>
     <Datagrid rowClick="edit">
-      <TextField source="nome" />
-      <EmailField source="email" />
+      <TextField source="tema" />
 
       <ReferenceField source="eventoId" reference="eventos">
+        <TextField source="nome" />
+      </ReferenceField>
+      <ReferenceField source="palestranteId" reference="palestrantes">
         <TextField source="nome" />
       </ReferenceField>
     </Datagrid>

@@ -43,8 +43,7 @@ const AgendaCreate = props => (
         source="eventoId"
         reference="eventos"
         resource="eventos"
-        validate={required()}
-      >
+        validate={required()}>
         <SelectInput optionText="nome" />
       </ReferenceInput>
       <ReferenceInput
@@ -52,14 +51,12 @@ const AgendaCreate = props => (
         source="participanteId"
         reference="participantes"
         resource="participantes"
-        validate={required()}
-      >
+        validate={required()}>
         <SelectInput optionText="nome" />
       </ReferenceInput>
 
       <FormDataConsumer>
         {({ formData, ...rest }) => {
-          console.log(rest);
           if (formData.eventoId) {
             return (
               <ReferenceInput
@@ -68,8 +65,7 @@ const AgendaCreate = props => (
                 reference="salas"
                 resource="salas"
                 filter={{ eventoId: formData.eventoId }}
-                validate={required()}
-              >
+                validate={required()}>
                 <SelectInput optionText="nome" />
               </ReferenceInput>
             );
