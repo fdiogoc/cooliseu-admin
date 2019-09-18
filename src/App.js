@@ -3,16 +3,15 @@ import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
 import { createMuiTheme } from "@material-ui/core/styles";
 
 import authProvider from "./authProvider";
-import dataProvider from "./dataProvider";
+
 import dataProviderNaga from "./dataProviderNaga";
 
 import participantes from "./participantes";
 import eventos from "./eventos";
 import salas from "./salas";
 import agendas from "./agendas";
-import categorias from "./categorias";
+import palestrantes from "./palestrantes";
 import { Layout } from "./layout";
-import customRoutes from "./customRoutes";
 
 import portugueseMessages from "ra-language-portuguese";
 
@@ -36,12 +35,19 @@ const App = () => (
     authProvider={authProvider}
     dataProvider={dataProviderNaga}
     appLayout={Layout}>
-    <Resource name="participantes" {...participantes} />
-    <Resource name="eventos" {...eventos} />
-    <Resource name="salas" {...salas} />
-    <Resource name="agendas" {...agendas} />
-
-    <Resource name="horarios" />
+    {permissions => [
+      <Resource name="horarios" />,
+      <Resource name="salas" {...salas} />,
+      <Resource name="agendas" {...agendas} />,
+      <Resource name="palestrantes" {...palestrantes} />,
+      permissions === "admin" ? (
+        <Resource name="participantes" {...participantes} />
+      ) : null,
+      permissions === "admin" ? <Resource name="eventos" {...eventos} /> : null,
+      permissions === "admin" ? (
+        <Resource name="participantes" {...participantes} />
+      ) : null
+    ]}
   </Admin>
 );
 

@@ -15,6 +15,8 @@ const firebaseConfig = {
 
 const trackedResources = [
   { name: "participantes", isPublic: true },
+  { name: "palestrantes", isPublic: true },
+  { name: "palestras", isPublic: true },
   { name: "eventos", isPublic: true },
   { name: "salas", isPublic: true },
   { name: "agendas", isPublic: true },
