@@ -37,18 +37,18 @@ const App = () => (
     dataProvider={dataProviderNaga}
     appLayout={Layout}>
     {permissions => [
-      <Resource name="horarios" />,
-      <Resource name="salas" {...salas} />,
-      <Resource name="agendas" {...agendas} />,
-      <Resource name="palestrantes" {...palestrantes} />,
-      <Resource name="palestras" {...palestras} />,
       permissions === "admin" ? (
         <Resource name="participantes" {...participantes} />
       ) : null,
       permissions === "admin" ? <Resource name="eventos" {...eventos} /> : null,
       permissions === "admin" ? (
         <Resource name="participantes" {...participantes} />
-      ) : null
+      ) : null,
+      <Resource name="horarios" />,
+      <Resource name="salas" {...salas} />,
+      <Resource name="agendas" {...agendas} />,
+      <Resource name="palestrantes" {...palestrantes} />,
+      <Resource name="palestras" {...palestras} />
     ]}
   </Admin>
 );

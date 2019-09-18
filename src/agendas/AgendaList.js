@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { List, Datagrid, TextField, ReferenceField } from "react-admin";
-import get from "lodash/get";
 import HorarioFromId from "./HorarioFromId";
 const AgendaList = props => (
   <Fragment>

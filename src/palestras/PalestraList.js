@@ -1,7 +1,7 @@
 import React from "react";
 import { List, Datagrid, TextField, ReferenceField } from "react-admin";
 
-const PalestranteList = props => (
+const PalestraList = props => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="tema" />
@@ -16,4 +16,4 @@ const PalestranteList = props => (
   </List>
 );
 
-export default PalestranteList;
+export default PalestraList;

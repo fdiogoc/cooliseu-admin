@@ -1,5 +1,5 @@
 import React from "react";
-import { LinearProgress, Query, TextField } from "react-admin";
+import { LinearProgress, Query } from "react-admin";
 
 const HorarioFromId = ({ record = {} }) => {
   return (

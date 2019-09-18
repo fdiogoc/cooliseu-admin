@@ -8,10 +8,6 @@ import {
   SelectInput
 } from "react-admin";
 
-const AgendaTitle = ({ record }) => {
-  return <span>User {record ? ` - ${record.nome}` : ""}</span>;
-};
-
 export const AgendaEdit = props => (
   <Edit {...props}>
     <SimpleForm>
