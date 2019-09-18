@@ -2,6 +2,7 @@ import React from "react";
 import { Admin, Resource, ListGuesser, EditGuesser } from "react-admin";
 import { createMuiTheme } from "@material-ui/core/styles";
 
+import authProvider from "./authProvider";
 import dataProvider from "./dataProvider";
 import dataProviderNaga from "./dataProviderNaga";
 
@@ -32,9 +33,9 @@ const App = () => (
     locale="pt"
     i18nProvider={i18nProvider}
     theme={theme}
+    authProvider={authProvider}
     dataProvider={dataProviderNaga}
-    appLayout={Layout}
-  >
+    appLayout={Layout}>
     <Resource name="participantes" {...participantes} />
     <Resource name="eventos" {...eventos} />
     <Resource name="salas" {...salas} />
