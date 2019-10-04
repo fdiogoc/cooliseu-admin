@@ -4,7 +4,6 @@ import {
   DisabledInput,
   ImageInput,
   ImageField,
-  DateField,
   EditController,
   EditView,
   FormTab,
@@ -19,15 +18,6 @@ import RichTextInput from "ra-input-rich-text";
 
 import brLocale from "date-fns/locale/pt-br";
 import DateFnsUtils from "@date-io/date-fns";
-
-const EventTitle = ({ record }) => {
-  return <span>Evento {record ? ` - ${record.nome}` : ""}</span>;
-};
-const myDateField = ({ source, record = {} }) => {
-  console.log(record);
-  let validDate = record[source].toDate();
-  return <DateField source={validDate} showTime />;
-};
 
 const EventEdit = (props) => (
   <EditController {...props}>

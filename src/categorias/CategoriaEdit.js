@@ -3,7 +3,6 @@ import {
   Edit,
   TextInput,
   SimpleForm,
-  required,
   SaveButton,
   Toolbar,
   translate,

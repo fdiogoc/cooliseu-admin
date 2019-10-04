@@ -3,16 +3,10 @@ import {
   Create,
   TextInput,
   SimpleForm,
-  required,
   SaveButton,
   Toolbar,
-  translate,
-  DisabledInput,
-  ReferenceInput,
-  SelectInput
+  translate
 } from "react-admin";
-import { AvailableTimeComp } from "../ra-available-times/AvailableTimes";
-import SalaHorarioReferenceInput from "../custom/SalaHorarioReferenceInput";
 
 import Button from "@material-ui/core/Button";
 

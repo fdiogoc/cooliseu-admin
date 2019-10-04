@@ -8,10 +8,7 @@ import {
 } from "react-admin";
 
 import { DateInput } from "react-admin-date-inputs";
-import { ColorInput } from "react-admin-color-input";
-import RichTextInput from "ra-input-rich-text";
-import DateFnsUtils from "@date-io/date-fns";
-import compareAsc from "date-fns/compareAsc";
+
 import isPast from "date-fns/isPast";
 
 const isPastf = isPast;
