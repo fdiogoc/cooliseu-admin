@@ -4,7 +4,11 @@ import {
   SimpleForm,
   TextInput,
   DisabledInput,
-  BooleanInput
+  ImageInput,
+  ImageField,
+  ReferenceInput,
+  SelectInput,
+  required
 } from "react-admin";
 
 const PalestranteTitle = ({ record }) => {

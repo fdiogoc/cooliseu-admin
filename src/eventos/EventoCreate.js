@@ -4,13 +4,13 @@ import {
   SimpleForm,
   TextInput,
   DisabledInput,
-  DateInput,
   ImageInput,
   ImageField
 } from "react-admin";
 
-import { DateTimeInput, TimeInput } from "react-admin-date-inputs";
+import { DateInput } from "react-admin-date-inputs";
 import { ColorInput } from "react-admin-color-input";
+import RichTextInput from "ra-input-rich-text";
 
 const EventoCreate = (props) => (
   <Create {...props}>
@@ -18,25 +18,31 @@ const EventoCreate = (props) => (
       <DisabledInput source="id" />
 
       <TextInput label="Nome" source="nome" />
-      <DateTimeInput
+
+      <DateInput
         label="Data"
         source="data_inicio"
         options={{
-          format: "dd/MM/YYYY, HH:mm:ss",
+          format: "dd/MM/YYYY",
+          ampm: false,
+          clearable: true
+        }}
+      />
+      <DateInput
+        label="Data"
+        source="data_fim"
+        options={{
+          format: "dd/MM/YYYY",
           ampm: false,
           clearable: true
         }}
       />
 
       <TextInput label="Local" source="local" />
+      <RichTextInput source="descricao" />
       <ColorInput label="Cor" source="cor" />
-      <ImageInput
-        source="image"
-        label="Related Image"
-        accept="image/*"
-        multiple
-      >
-        <ImageField source="src" title="title" />
+      <ImageInput source="image" label="Imagem Hero" accept="image/*" multiple>
+        <ImageField source="src" title="event_image" />
       </ImageInput>
     </SimpleForm>
   </Create>
