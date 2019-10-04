@@ -23,7 +23,7 @@ const TagCreateToolbar = translate(({ onCancel, translate, ...props }) => (
   </Toolbar>
 ));
 
-const onChangeForm = event => {
+const onChangeForm = (event) => {
   debugger;
   console.log(event);
 };
@@ -33,21 +33,7 @@ const CategoriaCreate = ({ onCancel, ...props }) => (
     <SimpleForm
       toolbar={<TagCreateToolbar onCancel={onCancel} onChange={onChangeForm} />}
     >
-      <ReferenceInput source="eventoId" reference="eventos">
-        <SelectInput optionText="nome" label="Evento" />
-      </ReferenceInput>
-      <SalaHorarioReferenceInput source="salaId" reference="salas">
-        <SelectInput optionText="nome" label="Sala" />
-      </SalaHorarioReferenceInput>
-      <ReferenceInput
-        source="participanteId"
-        reference="participantes"
-        validate={required()}
-      >
-        <SelectInput optionText="nome" />
-      </ReferenceInput>
-
-      <AvailableTimeComp source="horarios" />
+      <TextInput label="Descrição" source="desc" />
     </SimpleForm>
   </Create>
 );

@@ -1,7 +1,7 @@
 import {
   RestProvider,
   base64Uploader
-} from "ra-data-firestore-client-naggertooth";
+} from "ra-data-firestore-client-diogo/src/lib";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC5m8jKKZe5Mu969fTaJyxDAYxcCceIO_4",

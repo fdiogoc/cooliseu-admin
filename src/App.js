@@ -12,6 +12,7 @@ import salas from "./salas";
 import agendas from "./agendas";
 import palestrantes from "./palestrantes";
 import palestras from "./palestras";
+import categorias from "./categorias";
 import { Layout } from "./layout";
 
 import portugueseMessages from "ra-language-portuguese";
@@ -19,7 +20,7 @@ import portugueseMessages from "ra-language-portuguese";
 const messages = {
   pt: portugueseMessages
 };
-const i18nProvider = locale => messages[locale];
+const i18nProvider = (locale) => messages[locale];
 
 const theme = createMuiTheme({
   palette: {
@@ -35,8 +36,9 @@ const App = () => (
     theme={theme}
     authProvider={authProvider}
     dataProvider={dataProviderNaga}
-    appLayout={Layout}>
-    {permissions => [
+    appLayout={Layout}
+  >
+    {(permissions) => [
       permissions === "admin" ? (
         <Resource name="participantes" {...participantes} />
       ) : null,
@@ -48,7 +50,8 @@ const App = () => (
       <Resource name="salas" {...salas} />,
       <Resource name="agendas" {...agendas} />,
       <Resource name="palestrantes" {...palestrantes} />,
-      <Resource name="palestras" {...palestras} />
+      <Resource name="palestras" {...palestras} />,
+      <Resource name="categorias" {...categorias} />
     ]}
   </Admin>
 );

@@ -9,7 +9,6 @@ import {
   CREATE,
   REDUX_FORM_NAME
 } from "react-admin";
-import IconContentAdd from "@material-ui/icons/Add";
 
 import List from "@material-ui/core/List";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -20,9 +19,9 @@ import InboxIcon from "@material-ui/icons/Inbox";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import { withStyles } from "@material-ui/core/styles";
 
-import dataProvider from "../dataProvider";
+import dataProvider from "../dataProviderNaga";
 
-const styles = theme => ({
+const styles = (theme) => ({
   selected: {
     backgroundColor: "turquoise !important",
     color: "white",
@@ -57,7 +56,7 @@ class SalaQuickCreateButton extends Component {
     submit("sala-quick-create");
   };
 
-  handleSubmit = values => {
+  handleSubmit = (values) => {
     const { change, fetchStart, fetchEnd, showNotification } = this.props;
     // Dispatch an action letting react-admin know a API call is ongoing
     fetchStart();
@@ -70,7 +69,7 @@ class SalaQuickCreateButton extends Component {
         change(REDUX_FORM_NAME, "salaId", data.id);
         this.setState({ showDialog: false });
       })
-      .catch(error => {
+      .catch((error) => {
         showNotification(error.message, "error");
       })
       .finally(() => {
@@ -88,7 +87,7 @@ class SalaQuickCreateButton extends Component {
           <MenuItem
             button
             selected={selectedIndex === 0}
-            onClick={event => this.handleListItemClick(event, 0)}
+            onClick={(event) => this.handleListItemClick(event, 0)}
           >
             <ListItemIcon>
               <InboxIcon />
@@ -98,7 +97,7 @@ class SalaQuickCreateButton extends Component {
           <MenuItem
             button
             selected={selectedIndex === 1}
-            onClick={event => this.handleListItemClick(event, 1)}
+            onClick={(event) => this.handleListItemClick(event, 1)}
           >
             <ListItemIcon>
               <DraftsIcon />
@@ -111,14 +110,14 @@ class SalaQuickCreateButton extends Component {
           <MenuItem
             button
             selected={selectedIndex === 2}
-            onClick={event => this.handleListItemClick(event, 2)}
+            onClick={(event) => this.handleListItemClick(event, 2)}
           >
             <ListItemText primary="Trash" />
           </MenuItem>
           <MenuItem
             button
             selected={selectedIndex === 3}
-            onClick={event => this.handleListItemClick(event, 3)}
+            onClick={(event) => this.handleListItemClick(event, 3)}
           >
             <ListItemText primary="Spam" />
           </MenuItem>
@@ -128,7 +127,7 @@ class SalaQuickCreateButton extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isSubmitting: isSubmitting("sala-quick-create")(state)
 });
 

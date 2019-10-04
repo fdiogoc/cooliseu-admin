@@ -22,7 +22,7 @@ const CategoriaEdit = ({ onCancel, ...props }) => (
   <Edit title="" {...props}>
     <SimpleForm toolbar={<TagCreateToolbar onCancel={onCancel} />}>
       <DisabledInput source="id" />
-      <TextInput label="Nome" source="nome" />
+      <TextInput label="Nome" source="desc" />
     </SimpleForm>
   </Edit>
 );

@@ -6,6 +6,7 @@ import {
   DisabledInput,
   ReferenceInput,
   required,
+  email,
   SelectInput,
   ImageInput,
   ImageField
@@ -15,8 +16,8 @@ const PalestranteEdit = (props) => (
   <Create {...props} label="Criar">
     <SimpleForm>
       <DisabledInput source="id" />
-      <TextInput source="nome" />
-      <TextInput source="email" type="email" />
+      <TextInput source="nome" validate={required()} />
+      <TextInput source="email" type="email" validate={[required(), email()]} />
       <ImageInput source="foto" label="Foto" accept="image/*">
         <ImageField source="src" title="foto" />
       </ImageInput>
