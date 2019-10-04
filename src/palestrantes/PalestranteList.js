@@ -4,10 +4,13 @@ import {
   Datagrid,
   TextField,
   EmailField,
-  ReferenceField
+  ReferenceField,
+  ReferenceArrayField,
+  SingleFieldList,
+  ChipField
 } from "react-admin";
 
-const PalestranteList = props => (
+const PalestranteList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="nome" />
@@ -16,6 +19,16 @@ const PalestranteList = props => (
       <ReferenceField source="eventoId" reference="eventos">
         <TextField source="nome" />
       </ReferenceField>
+
+      <ReferenceArrayField
+        label="Palestras"
+        reference="palestras"
+        source="palestranteId"
+      >
+        <SingleFieldList linkType="show">
+          <ChipField source="tema" />
+        </SingleFieldList>
+      </ReferenceArrayField>
     </Datagrid>
   </List>
 );

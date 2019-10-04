@@ -1,13 +1,16 @@
 import React from "react";
-import { List, Datagrid, TextField, DateField } from "react-admin";
+import { List, Datagrid, TextField } from "react-admin";
 
-const UserList = props => (
+import { ColorField } from "react-admin-color-input";
+
+const UserList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="id" />
       <TextField source="nome" />
       <TextField source="local" />
-      <DateField soruce="data_inicio" />
+
+      <ColorField label="Cor" source="cor" />
     </Datagrid>
   </List>
 );

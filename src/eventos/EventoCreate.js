@@ -1,9 +1,18 @@
 import React from "react";
-import { Create, SimpleForm, TextInput, DisabledInput } from "react-admin";
+import {
+  Create,
+  SimpleForm,
+  TextInput,
+  DisabledInput,
+  DateInput,
+  ImageInput,
+  ImageField
+} from "react-admin";
 
-import { DateTimeInput } from "react-admin-date-inputs";
+import { DateTimeInput, TimeInput } from "react-admin-date-inputs";
+import { ColorInput } from "react-admin-color-input";
 
-const EventoCreate = props => (
+const EventoCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
@@ -20,6 +29,15 @@ const EventoCreate = props => (
       />
 
       <TextInput label="Local" source="local" />
+      <ColorInput label="Cor" source="cor" />
+      <ImageInput
+        source="image"
+        label="Related Image"
+        accept="image/*"
+        multiple
+      >
+        <ImageField source="src" title="title" />
+      </ImageInput>
     </SimpleForm>
   </Create>
 );

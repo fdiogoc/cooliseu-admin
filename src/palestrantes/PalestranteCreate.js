@@ -6,22 +6,27 @@ import {
   DisabledInput,
   ReferenceInput,
   required,
-  SelectInput
+  SelectInput,
+  ImageInput,
+  ImageField
 } from "react-admin";
 
-const PalestranteEdit = props => (
+const PalestranteEdit = (props) => (
   <Create {...props} label="Criar">
     <SimpleForm>
       <DisabledInput source="id" />
       <TextInput source="nome" />
       <TextInput source="email" type="email" />
-
+      <ImageInput source="foto" label="Foto" accept="image/*">
+        <ImageField source="src" title="foto" />
+      </ImageInput>
       <ReferenceInput
         label="Evento"
         source="eventoId"
         reference="eventos"
         resource="eventos"
-        validate={required()}>
+        validate={required()}
+      >
         <SelectInput optionText="nome" />
       </ReferenceInput>
     </SimpleForm>

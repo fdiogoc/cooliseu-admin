@@ -11,18 +11,24 @@ const PalestranteTitle = ({ record }) => {
   return <span>Palestrante {record ? ` - ${record.name}` : ""}</span>;
 };
 
-const PalestranteEdit = props => (
+const PalestranteEdit = (props) => (
   <Edit title={<PalestranteTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
-
-      <TextInput source="email" />
-
-      <BooleanInput source="isAdmin" />
-
       <TextInput source="nome" />
-
-      <TextInput source="username" />
+      <TextInput source="email" type="email" />
+      <ImageInput source="foto" label="Foto" accept="image/*">
+        <ImageField source="src" title="foto" />
+      </ImageInput>
+      <ReferenceInput
+        label="Evento"
+        source="eventoId"
+        reference="eventos"
+        resource="eventos"
+        validate={required()}
+      >
+        <SelectInput optionText="nome" />
+      </ReferenceInput>
     </SimpleForm>
   </Edit>
 );
