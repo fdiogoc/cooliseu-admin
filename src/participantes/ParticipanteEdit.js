@@ -4,25 +4,38 @@ import {
   SimpleForm,
   TextInput,
   DisabledInput,
-  BooleanInput
+  ReferenceInput,
+  required,
+  SelectInput
 } from "react-admin";
 
 const ParticipanteTitle = ({ record }) => {
   return <span>Participante {record ? ` - ${record.name}` : ""}</span>;
 };
 
-const ParticipanteEdit = props => (
+const ParticipanteEdit = (props) => (
   <Edit title={<ParticipanteTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
-
-      <TextInput source="email" />
-
-      <BooleanInput source="isAdmin" />
-
       <TextInput source="nome" />
-
-      <TextInput source="username" />
+      <TextInput source="email" type="email" />
+      <ReferenceInput
+        label="Evento"
+        source="eventoId"
+        reference="eventos"
+        resource="eventos"
+        validate={required()}
+      >
+        <SelectInput optionText="nome" />
+      </ReferenceInput>
+      <SelectInput
+        source="tipo"
+        choices={[
+          { id: "PRNC", name: "Rodada de negócio completo" },
+          { id: "PRNS", name: "Rodada de negócio simples" },
+          { id: "S", name: "Simples" }
+        ]}
+      />
     </SimpleForm>
   </Edit>
 );

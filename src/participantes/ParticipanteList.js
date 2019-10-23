@@ -1,14 +1,23 @@
 import React from "react";
-import { List, Datagrid, TextField, EmailField } from "react-admin";
+import {
+  List,
+  Datagrid,
+  TextField,
+  EmailField,
+  ReferenceField,
+  ChipField
+} from "react-admin";
 import BooleanCustomField from "../custom/BooleanCustomField";
-const ParticipanteList = props => (
+const ParticipanteList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="nome" />
       <EmailField source="email" />
 
-      <BooleanCustomField source="isAdmin" />
-      <TextField source="username" />
+      <ReferenceField source="eventoId" reference="eventos">
+        <TextField source="nome" />
+      </ReferenceField>
+      <ChipField source="tipo" />
     </Datagrid>
   </List>
 );

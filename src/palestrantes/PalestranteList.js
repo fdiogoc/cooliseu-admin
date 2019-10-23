@@ -19,16 +19,6 @@ const PalestranteList = (props) => (
       <ReferenceField source="eventoId" reference="eventos">
         <TextField source="nome" />
       </ReferenceField>
-
-      <ReferenceArrayField
-        label="Palestras"
-        reference="palestras"
-        source="palestranteId"
-      >
-        <SingleFieldList linkType="show">
-          <ChipField source="tema" />
-        </SingleFieldList>
-      </ReferenceArrayField>
     </Datagrid>
   </List>
 );

@@ -13,15 +13,15 @@ const SalaTitle = ({ record }) => {
   return <span>Sala {record ? ` - ${record.nome}` : ""}</span>;
 };
 
-const SalaEdit = props => (
+const SalaEdit = (props) => (
   <Edit title={<SalaTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
       <TextInput label="Nome" source="nome" />
 
       <ReferenceInput
-        source="participanteId"
-        reference="participantes"
+        source="palestranteId"
+        reference="palestrantes"
         label="Organizador"
       >
         <SelectInput optionText="nome" />

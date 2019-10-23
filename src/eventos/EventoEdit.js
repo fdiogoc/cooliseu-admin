@@ -19,13 +19,17 @@ import RichTextInput from "ra-input-rich-text";
 import brLocale from "date-fns/locale/pt-br";
 import DateFnsUtils from "@date-io/date-fns";
 
+const EventoTitle = ({ record }) => {
+  return <span>Evento {record ? ` - ${record.nome}` : ""}</span>;
+};
+
 const EventEdit = (props) => (
   <EditController {...props}>
     {(controllerProps) => {
       console.log(controllerProps);
 
       return (
-        <EditView {...props} {...controllerProps}>
+        <EditView title={<EventoTitle />} {...props} {...controllerProps}>
           <TabbedForm>
             <FormTab label="Principal">
               <DisabledInput source="id" />

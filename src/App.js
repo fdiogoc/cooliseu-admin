@@ -12,7 +12,7 @@ import salas from "./salas";
 import agendas from "./agendas";
 import palestrantes from "./palestrantes";
 import palestras from "./palestras";
-import categorias from "./categorias";
+
 import { Layout } from "./layout";
 
 import portugueseMessages from "ra-language-portuguese";
@@ -39,19 +39,21 @@ const App = () => (
     appLayout={Layout}
   >
     {(permissions) => [
-      permissions === "admin" ? (
-        <Resource name="participantes" {...participantes} />
-      ) : null,
+      <Resource name="agendas" {...agendas} />,
       permissions === "admin" ? <Resource name="eventos" {...eventos} /> : null,
       permissions === "admin" ? (
         <Resource name="participantes" {...participantes} />
       ) : null,
-      <Resource name="horarios" />,
-      <Resource name="salas" {...salas} />,
+
+      permissions === "admin" ? (
+        <Resource name="participantes" {...participantes} />
+      ) : null,
       <Resource name="agendas" {...agendas} />,
+      <Resource name="horarios" />,
+
       <Resource name="palestrantes" {...palestrantes} />,
       <Resource name="palestras" {...palestras} />,
-      <Resource name="categorias" {...categorias} />
+      <Resource name="salas" {...salas} />
     ]}
   </Admin>
 );

@@ -10,7 +10,7 @@ import {
 } from "react-admin";
 import { AvailableTimeComp } from "../ra-available-times/AvailableTimes";
 
-const SalaCreate = props => (
+const SalaCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <DisabledInput source="id" />
@@ -18,10 +18,11 @@ const SalaCreate = props => (
 
       <ReferenceInput
         label="Organizador"
-        source="participanteId"
-        reference="participantes"
-        resources="participantes"
-        validate={required()}>
+        source="palestranteId"
+        reference="palestrantes"
+        resources="palestrantes"
+        validate={required()}
+      >
         <SelectInput optionText="nome" />
       </ReferenceInput>
 
