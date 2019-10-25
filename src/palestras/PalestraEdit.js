@@ -8,7 +8,7 @@ import {
   SelectInput
 } from "react-admin";
 
-import { DateInput, TimeInput, DateTimeInput } from "react-admin-date-inputs";
+import { DateTimeInput } from "react-admin-date-inputs";
 const dateFormatter = (v) => {
   if (typeof v.toLocaleString === "function") {
     if (v.constructor.name == "Timestamp") {
