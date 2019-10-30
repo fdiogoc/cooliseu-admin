@@ -21,9 +21,6 @@ const PalestranteEdit = (props) => (
       <DisabledInput source="id" />
       <TextInput source="nome" />
       <TextInput source="email" type="email" />
-      <ImageInput source="foto" label="Foto" accept="image/*">
-        <ImageField source="src" title="foto" />
-      </ImageInput>
       <ReferenceInput
         label="Evento"
         source="eventoId"
@@ -33,6 +30,9 @@ const PalestranteEdit = (props) => (
       >
         <SelectInput optionText="nome" />
       </ReferenceInput>
+      <ImageInput source="image" label="Foto" accept="image/*" multiple>
+        <ImageField source="src" />
+      </ImageInput>
     </SimpleForm>
   </Edit>
 );

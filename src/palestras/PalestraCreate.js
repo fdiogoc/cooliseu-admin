@@ -8,21 +8,22 @@ import {
   required,
   SelectInput,
   FormDataConsumer,
-  DateTimeInput
+  DateTimeInput,
+  LongTextInput
 } from "react-admin";
 
-const PalestraCreate = props => (
+const PalestraCreate = (props) => (
   <Create {...props} label="Criar">
     <SimpleForm>
       <DisabledInput source="id" />
-      <TextInput source="tema" />
 
       <ReferenceInput
         label="Evento"
         source="eventoId"
         reference="eventos"
         resource="eventos"
-        validate={required()}>
+        validate={required()}
+      >
         <SelectInput optionText="nome" />
       </ReferenceInput>
       <FormDataConsumer>
@@ -35,7 +36,8 @@ const PalestraCreate = props => (
                 reference="palestrantes"
                 resource="palestrantes"
                 filter={{ eventoId: formData.eventoId }}
-                validate={required()}>
+                validate={required()}
+              >
                 <SelectInput optionText="nome" />
               </ReferenceInput>
             );
@@ -51,6 +53,8 @@ const PalestraCreate = props => (
           clearable: true
         }}
       />
+      <TextInput source="tema" />
+      <LongTextInput source="descricao" />
     </SimpleForm>
   </Create>
 );

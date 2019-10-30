@@ -5,7 +5,8 @@ import {
   TextInput,
   DisabledInput,
   ReferenceInput,
-  SelectInput
+  SelectInput,
+  LongTextInput
 } from "react-admin";
 
 import { DateTimeInput } from "react-admin-date-inputs";
@@ -43,15 +44,13 @@ export const PalestraEdit = (props) => (
     <SimpleForm>
       <DisabledInput source="id" />
       <TextInput source="tema" />
-      <TextInput source="tema2" />
+
       <ReferenceInput source="eventoId" reference="eventos">
         <SelectInput optionText="nome" />
       </ReferenceInput>
       <ReferenceInput source="palestranteId" reference="palestrantes">
         <SelectInput optionText="nome" />
       </ReferenceInput>
-
-      <DisabledInput format={dateFormatter} parse={dateParser} source="data" />
 
       <DateTimeInput
         format={dateFormatter}
@@ -64,6 +63,7 @@ export const PalestraEdit = (props) => (
           clearable: true
         }}
       />
+      <LongTextInput source="descricao" />
     </SimpleForm>
   </Edit>
 );

@@ -6,7 +6,6 @@ import { ColorField } from "react-admin-color-input";
 const UserList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
-      <TextField source="id" />
       <TextField source="nome" />
       <TextField source="local" />
 

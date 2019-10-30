@@ -26,7 +26,7 @@ const EventoTitle = ({ record }) => {
 const EventEdit = (props) => (
   <EditController {...props}>
     {(controllerProps) => {
-      console.log(controllerProps);
+      //console.log(controllerProps);
 
       return (
         <EditView title={<EventoTitle />} {...props} {...controllerProps}>
@@ -40,9 +40,15 @@ const EventEdit = (props) => (
                 options={{ format: "dd/MM/yyyy" }}
                 source="data_inicio"
                 format={(v) => {
-                  if (v) {
-                    if (typeof v.toDate === "function" || v !== undefined)
+                  if (typeof v.toLocaleString === "function") {
+                    if (v.constructor.name == "Timestamp") {
                       return v.toDate();
+                    }
+                    return new Date(v);
+                  }
+                  if (v !== undefined) {
+                    const dataISO = new Date(v.toDate()).toLocaleString();
+                    return dataISO;
                   }
                 }}
               />
@@ -51,9 +57,15 @@ const EventEdit = (props) => (
                 options={{ format: "dd/MM/yyyy" }}
                 source="data_fim"
                 format={(v) => {
-                  if (v) {
-                    if (typeof v.toDate === "function" || v !== undefined)
+                  if (typeof v.toLocaleString === "function") {
+                    if (v.constructor.name == "Timestamp") {
                       return v.toDate();
+                    }
+                    return new Date(v);
+                  }
+                  if (v !== undefined) {
+                    const dataISO = new Date(v.toDate()).toLocaleString();
+                    return dataISO;
                   }
                 }}
                 providerOptions={{ utils: DateFnsUtils, locale: brLocale }}
@@ -64,13 +76,14 @@ const EventEdit = (props) => (
             <FormTab label="Site">
               <RichTextInput source="descricao" />
               <ColorInput label="Cor" source="cor" />
+
               <ImageInput
                 source="image"
                 label="Imagem Hero"
                 accept="image/*"
                 multiple
               >
-                <ImageField source="src" title="title" />
+                <ImageField source="src" />
               </ImageInput>
             </FormTab>
 
