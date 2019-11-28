@@ -86,14 +86,6 @@ const EventEdit = (props) => (
                 <ImageField source="src" />
               </ImageInput>
             </FormTab>
-
-            <FormTab label="Categorias">
-              <ArrayInput source="categorias">
-                <SimpleFormIterator>
-                  <TextInput label="Descrição" source="desc" />
-                </SimpleFormIterator>
-              </ArrayInput>
-            </FormTab>
           </TabbedForm>
         </EditView>
       );

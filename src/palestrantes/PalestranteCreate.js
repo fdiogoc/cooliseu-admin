@@ -8,8 +8,7 @@ import {
   required,
   email,
   SelectInput,
-  ImageInput,
-  ImageField
+  LongTextInput
 } from "react-admin";
 
 const PalestranteEdit = (props) => (
@@ -27,6 +26,7 @@ const PalestranteEdit = (props) => (
       >
         <SelectInput optionText="nome" />
       </ReferenceInput>
+      <LongTextInput source="descricao" />
     </SimpleForm>
   </Create>
 );

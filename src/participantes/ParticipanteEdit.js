@@ -10,7 +10,7 @@ import {
 } from "react-admin";
 
 const ParticipanteTitle = ({ record }) => {
-  return <span>Participante {record ? ` - ${record.name}` : ""}</span>;
+  return <span>Participante {record ? ` - ${record.nome}` : ""}</span>;
 };
 
 const ParticipanteEdit = (props) => (

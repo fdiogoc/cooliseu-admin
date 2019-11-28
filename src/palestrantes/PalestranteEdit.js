@@ -8,11 +8,12 @@ import {
   ImageField,
   ReferenceInput,
   SelectInput,
-  required
+  required,
+  LongTextInput
 } from "react-admin";
 
 const PalestranteTitle = ({ record }) => {
-  return <span>Palestrante {record ? ` - ${record.name}` : ""}</span>;
+  return <span>Palestrante {record ? ` - ${record.nome}` : ""}</span>;
 };
 
 const PalestranteEdit = (props) => (
@@ -30,6 +31,7 @@ const PalestranteEdit = (props) => (
       >
         <SelectInput optionText="nome" />
       </ReferenceInput>
+      <LongTextInput source="descricao" />
       <ImageInput source="image" label="Foto" accept="image/*" multiple>
         <ImageField source="src" />
       </ImageInput>
